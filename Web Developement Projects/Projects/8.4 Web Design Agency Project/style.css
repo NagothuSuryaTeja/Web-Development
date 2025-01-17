@@ -13,59 +13,47 @@ body {
 h1 {
   font-size: 5rem;
 }
-
 footer {
   text-align: right;
   color: midnightblue;
 }
-.card{
-  width:45%;
-}
-.left{
-  float: left;
-}
-.right{
-  float: right;
-}
 .tile-image{
   height: 200px;
   float: left;
+  margin-right:50px ;
 }
-@media(max-width:680px)
-{
-
-  body{
-    font-family: "Poppins", sans-serif;
-    margin: 50px 50px 0 50px;
-    background-color: #faf9f6;
-    display: flex;
-    flex-direction: column;
-    min-height: 95vh;
-    background-color:aqua;
-  }
- h1{
-  font-size: 3.5rem;
-  text-align: center;
- }
- .logo{
-  height: 17.48px;
-  width: 100px;
- }
- .left{
-  clear: left;
- }
+.left{
+  float: left;
+  width: 45%;
+}
 .right{
-  clear: right;
+  width: 45%;
+  float: right;
 }
-.tile-image
-{
-  margin: 0px ;
-  clear: left;
-  width: 100%;
-}
-.card{
-  width: 580px;
-  height: 340px;
-}
-
+@media(max-width:680px){
+  body{
+    justify-content: center;
+  }
+  .right{
+    clear: right;
+    width: 100%;
+    
+  }
+  .left{
+    clear:left;
+    display: block;
+    width: 100%;
+  }
+  .tile-image{
+    clear: left;
+    width: 100%;
+    object-fit: cover;
+  }
+  h1{
+    text-align: center;
+    font-size: 3.5rem;
+  }
+  .logo{
+    width: 100px;
+  }
 }
