@@ -4,11 +4,13 @@ for(var i=0;i<7;i++)
     {
       var letter= this.innerHTML;
       Switch(letter);
+      indexAnimations(letter);
      });
 }
 document.addEventListener("keydown",function(event)
 {
     Switch(event.key);
+    indexAnimations(event.key);
 })
 function Switch(value)
 {
@@ -45,4 +47,13 @@ function Switch(value)
       default:
           console.log("someThing is Wrong");
       }  
+}
+function indexAnimations(currentkey)
+{
+    var btn = document.querySelector("."+currentkey);
+    btn.classList.add("pressed");
+    setTimeout(function(){
+        btn.classList.remove("pressed");
+    },100);
+    
 }
