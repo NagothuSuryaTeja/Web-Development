@@ -2,12 +2,7 @@ var colors=["red","green","blue","yellow"];
 var pcGamePattern=[];
 var userGamePattern=[];
 $(document).ready(function(){
-    $('.btn').delay(100).fadeOut().fadeIn('slow');
-    $(document).on("click",function()
-    {
-        var val=1;
-        $("h1").text("Level "+val);        
-    });
+   
     $(".red").on("click",function()
     { 
         var redaudio= new Audio("./sounds/red.mp3");
@@ -35,19 +30,46 @@ $(document).ready(function(){
     });
 
     function nextSequences(){
-        
         var index=Math.floor(Math.random()*3);
         var color=colors[index];
         pcGamePattern.push(color);
-
+        switch(color)
+        {
+            case "red":
+                var redaudio= new Audio("./sounds/red.mp3");
+                redaudio.play();
+            case "blue":
+                var redaudio= new Audio("./sounds/blue.mp3");
+                redaudio.play();
+            case "yellow":    
+                var redaudio= new Audio("./sounds/yellow.mp3");
+                redaudio.play();
+            case "green":
+                var redaudio= new Audio("./sounds/green.mp3");
+                redaudio.play();
+            
+        }
     }
     function validation()
     {
         res = pcGamePattern.join() == userGamePattern.join();
-        
+        return res;
     }
-
-
+    $(document).on("click",function()
+    {
+        var val=1;
+        $("h1").text("Level "+val);
+        nextSequences();
+        valid=validation();
+        if(valid)
+            {
+                alert(val++);
+            } 
+            else{
+               alert(val=0); 
+            }       
+    });
+    
 
 
 
