@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Taco Recipes</title>
+  <link rel="stylesheet" type="text/css" href="/styles/main.css">
+</head>
+
+<body>
+  <h1>Taco Town 🌮</h1>
+
+  <form action="/recipe" method="POST" class="buttons">
+    <button type="submit" value="chicken" name="choice">🍗</button>
+    <button type="submit" value="beef" name="choice">🥩</button>
+    <button type="submit" value="fish" name="choice">🐟</button>
+  </form>
+  <div id="recipeContainer" class="hidden">
+
+    <!-- If no recipe yet, show: -->
+     <% if(locals.recipe&&item){ %>
+      <% if(item=="chicken"){ %>
+        <h3>Ingredients:</h3>
+        <ul id="ingredientsList">
+          
+          <li><%= recipe[0].ingredients.protein.name %>, <%= recipe[0].ingredients.protein.preparation %></li>
+          <li><%= recipe[0].ingredients.salsa.name %></li>
+          <% recipe[0].ingredients.toppings.forEach(topping=> { %>
+            <li>
+              <%= topping.quantity %> of <%= topping.name %>
+            </li>
+            <% }) %>
+      <% }else if(item=="beef"){ %>
+        <h3>Ingredients:</h3>
+        <ul id="ingredientsList">
+          
+          <li><%= recipe[1].ingredients.protein.name %>, <%= recipe[0].ingredients.protein.preparation %></li>
+          <li><%= recipe[1].ingredients.salsa.name %></li>
+          <% recipe[1].ingredients.toppings.forEach(topping=> { %>
+            <li>
+              <%= topping.quantity %> of <%= topping.name %>
+            </li>
+            <% }) %>
+      <% }else if(item=="fish"){ %>
+        <h3>Ingredients:</h3>
+        <ul id="ingredientsList">
+          
+          <li><%= recipe[2].ingredients.protein.name %>, <%= recipe[0].ingredients.protein.preparation %></li>
+          <li><%= recipe[2].ingredients.salsa.name %></li>
+          <% recipe[2].ingredients.toppings.forEach(topping=> { %>
+            <li>
+              <%= topping.quantity %> of <%= topping.name %>
+            </li>
+            <% }) %>
+      <% } %>
+    <% }else{ %>
+    <h2>Pick your favourite taco ingredient 👆</h2>
+    <% } %>
+    </ul>
+  </div>
+</body>
+
+</html>
